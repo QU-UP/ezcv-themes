@@ -1,7 +1,7 @@
 name: PYPI release
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
     version_number:
       description: The version number to release
