@@ -1,0 +1,19 @@
+name: PYPI release
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+
+    # TODO: Add release ZIP file creation
+
+    # TODO: Add step to release ZIP files to releases page
+
