@@ -1,4 +1,4 @@
-name: PYPI release
+name: Create theme release
 
 on:
   workflow_dispatch:
