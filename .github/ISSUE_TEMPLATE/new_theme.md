@@ -1,5 +1,5 @@
 ---
-name: Feature request
+name: New Theme
 about: Suggest a new theme you want implemented
 title: "[Theme]"
 labels: new-theme
