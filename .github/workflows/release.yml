@@ -21,9 +21,9 @@ jobs:
         ls
         for theme in */ ; do
             if [ -d "$theme" ]; then
-                echo "$theme"
-                FILENAME="${theme}${{ github.event.inputs.version_number }}.zip"
-                echo "$FILENAME"
+                echo "${theme%/}"
+                FILENAME="${theme%/}_${{ github.event.inputs.version_number }}.zip"
+                echo "$FILENAME $theme"
                 zip -r $FILENAME $theme
             fi
         done
