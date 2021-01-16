@@ -15,7 +15,6 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    # TODO: Add release ZIP file creation
     - name: Create zip files
       run: |
         ls
@@ -29,5 +28,10 @@ jobs:
         done
         ls
 
-    # TODO: Add step to release ZIP files to releases page
-
+    - name: Create release draft
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "*.zip"
+        tag: ${{ github.event.inputs.version_number }}
+        draft: true
+        token: ${{ secrets.GITHUB_TOKEN }}
