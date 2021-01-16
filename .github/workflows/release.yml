@@ -2,6 +2,11 @@ name: PYPI release
 
 on:
   workflow_dispatch
+    inputs:
+    version_number:
+      description: The version number to release
+      default: "0.1.0"
+      required: true
 
 jobs:
   build:
@@ -14,6 +19,15 @@ jobs:
       uses: actions/setup-python@v2
 
     # TODO: Add release ZIP file creation
+    - name: Create zip files
+      run: |
+        ls
+        for theme in */ ; do
+          FILENAME=${theme}${{ github.event.inputs.version_number }}.zip
+          echo "FILENAME"
+          zip -r $FILENAME @theme
+        done
+        ls
 
     # TODO: Add step to release ZIP files to releases page
 
