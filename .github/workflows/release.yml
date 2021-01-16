@@ -22,8 +22,8 @@ jobs:
         for theme in */ ; do
             if [ -d "$theme" ]; then
                 echo "$theme"
-                FILENAME=${theme}${{ github.event.inputs.version_number }}.zip
-                echo "FILENAME"
+                FILENAME="${theme}${{ github.event.inputs.version_number }}.zip"
+                echo "$FILENAME"
                 zip -r $FILENAME $theme
             fi
         done
