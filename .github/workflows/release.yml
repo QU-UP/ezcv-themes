@@ -3,10 +3,10 @@ name: PYPI release
 on:
   workflow_dispatch:
     inputs:
-    version_number:
-      description: The version number to release
-      default: "0.1.0"
-      required: true
+      version_number:
+        description: The version number to release
+        default: "0.1.0"
+        required: true
 
 jobs:
   build:
