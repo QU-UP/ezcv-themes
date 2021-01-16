@@ -15,17 +15,17 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    - name: Setup Python
-      uses: actions/setup-python@v2
-
     # TODO: Add release ZIP file creation
     - name: Create zip files
       run: |
         ls
         for theme in */ ; do
-          FILENAME=${theme}${{ github.event.inputs.version_number }}.zip
-          echo "FILENAME"
-          zip -r $FILENAME @theme
+            if [ -d "$theme" ]; then
+                echo "$theme"
+                FILENAME=${theme}${{ github.event.inputs.version_number }}.zip
+                echo "FILENAME"
+                zip -r $FILENAME $theme
+            fi
         done
         ls
 
