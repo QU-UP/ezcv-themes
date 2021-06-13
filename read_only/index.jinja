@@ -42,8 +42,10 @@
 						<li><a href="#two">Experience</a></li>
 						{% endif %}
 						{% if projects_html %}
-
 						<li><a href="#three">Projects</a></li>
+						{% endif %}
+						{% if config['resume'] %} 
+						<li><a href="/resume.html">Resume</a></li>
 						{% endif %}
 					</ul>
 				</nav>

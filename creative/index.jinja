@@ -56,11 +56,14 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     {% endif %}
 
-
                     {% if projects_html %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Projects</a></li>
                     {% endif %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+
+                    {% if config["resume"] %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/resume.html">Resume</a></li>
+                    {%endif%}
                     </ul>
                 </div>
             </div>

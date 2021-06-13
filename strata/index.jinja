@@ -177,6 +177,9 @@
 						{% if config['phone'] %} 
 						<li><a href="tel:{{config['phone']}}" class="icon solid fa-phone" target="_blank"><span class="label">phone</span></a></li>
                         {% endif %}
+						{% if config['resume'] %} 
+						<li><a href="/resume.html" class="icon solid fa-address-card" target="_blank"><span class="label">Resume</span></a></li>
+                        {% endif %}
 					</ul>
 					<ul class="copyright">
 						<li><p class="copyright">&copy; {{ config["name"] }} 2020. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. </br>Built using: <a href="https://ezcv.readthedocs.io" target="_blank">ezcv</a>.</p></li>

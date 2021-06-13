@@ -94,6 +94,10 @@
 											{% if config['phone'] %} 
 											<li class="icon solid fa-phone"><a href="tel:{{config['phone']}}" target="_blank">{{config['phone']}}</a></li>
 											{% endif %}
+
+											{% if config["resume"] %}
+											<li class="icon solid fa-address-card"><a href="/resume.html" target="_blank">Resume</a></li>
+											{%endif%}
 										</ul>
 									
 									</div>
