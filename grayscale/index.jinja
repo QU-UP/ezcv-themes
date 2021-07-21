@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{{ config["name"] }}</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        {% if config["ua_code"] %}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{config["ua_code"]}}');
+            </script>
+        {% endif %}
+    </head>
+
+    {% if config["background"] %}
+    <style>
+    .masthead {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 35rem;
+        padding: 15rem 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("{{ config['background'] | get_image_path }}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+    </style>
+    {% endif %}
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">{{ config["name"] }}</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                    {% if projects_html%}
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    {%endif%}
+
+                    {% if work_experience_html %}
+                        <li class="nav-item"><a class="nav-link" href="#work-experience">Work Experience</a></li>
+                    {%endif%}
+
+                    {% if volunteering_experience_html %}
+                        <li class="nav-item"><a class="nav-link" href="#volunteering-experience">Volunteering Experience</a></li>
+                    {%endif%}
+
+                    {% if education_html %}
+                        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">{{ config["name"] }}</h1>
+                        {% if config["role"] or config["company"] %}
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5" style="font-weight: 700;">{% if config["role"] %} {{ config["role"] }} | {%endif%} {% if config["company"]%} {{ config["company"] }}{%endif%}</h2>
+                        {%endif%}
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">{{ config["biography"] }}</h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="projects-section bg-light" id="projects">
+            <div class="container px-4 px-lg-5">
+
+                {{ projects_html | safe }}
+
+                {{ work_experience_html | safe }}
+
+                {{ volunteering_experience_html | safe }}
+
+                {{ education_html | safe }}
+
+            </div>
+        </section>
+
+
+        {% if config["address"] or config["email"] or config["phone"] or config["social"] %}
+        <!-- Signup-->
+        <section class="signup-section" id="signup">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">Get in touch!</h2>
+                        <h4 class="text-white mb-5"> Reach out to me via one of the methods below! </h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="contact-section bg-black">
+
+            
+            <div class="container px-4 px-lg-5">
+                {% if config["address"] or config["email"] or config["phone"] %}
+                <div class="row gx-4 gx-lg-5">
+                    {% if config["address"] %}
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Address</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">{{config['address']}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endif%}
+
+                    {% if config["email"] %}
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="mailto:{{config['email']}}">{{config["email"]}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endif%}
+
+                    {%if config["phone"] %}
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="tel:{{config['phone']}}">{{config['phone']}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endif%}
+                </div>
+                {%endif%}
+                <div class="social d-flex justify-content-center">
+
+                    {% if config['social']["github"] %}
+                    <a class="mx-2" href="https://github.com/{{config['social']['github']}}" target="_blank"><i class="fab fa-github"></i></a>
+                    {% endif %}
+                    {% if config['social']["youtube"] %}
+                    <a class="mx-2" href="https://youtube.com/{{config['social']['youtube']}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                    {% endif %}
+                    {% if config['social']["twitch"] %}
+                    <a class="mx-2" href="https://twitch.tv/{{config['social']['twitch']}}" target="_blank"><i class="fab fa-twitch"></i></a>
+                    {% endif %}
+                    {% if config['social']["twitter"] %}
+                    <a class="mx-2" href="https://twitter.com/{{config['social']['twitter']}}" target="_blank"><i class="fab fa-twitter"></i></a>
+                    {% endif %}
+                    {% if config['social']["instagram"] %}
+                    <a class="mx-2" href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    {% if config['social']["facebook"] %}
+                    <a class="mx-2" href="https://www.facebook.com/{{config['social']['facebook']}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    {% endif %}
+                    {% if config['social']["linkedin"] %}
+                    <a class="mx-2" href="https://www.linkedin.com/in/{{config['social']['linkedin']}}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    {% endif %}
+                    {% if config['social']["snapchat"] %} 
+                    <a class="mx-2" href="https://snapchat.com/add/{{ config['social']['snapchat'] }}" target="_blank"><i class="fab fa-snapchat"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {%endif%}
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; {{config["name"]}} 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
