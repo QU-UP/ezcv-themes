@@ -1,0 +1,20 @@
+<!-- Experience-->
+<section class="resume-section" id="projects">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Projects</h2>
+
+        {%for project in projects %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <h3 class="mb-0">{{ project[0]['title'] }}</h3>
+                <div class="subheading mb-3">{{ project[0]['title'] }}</div>
+                {{ project[1] | safe }}
+
+                {% if project[0]["link"] %}
+                
+                {%endif%}
+            </div>
+        </div>
+        {%endfor %}
+    </div>
+</section>
