@@ -21,7 +21,7 @@
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">{{config['name']}}</span>
                 {% if config['avatar'] %}
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ config['avatar'] | get_image_path }}" alt="{{config['name']}}" /></span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ config['avatar'] | get_image_path }}" alt="{{config['name']}}" style="min-height: 5em; min-width: 5em;"/></span>
                 {%else%}
                 <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="images/profile.jpg" alt="{{config['name']}}" /></span>
                 {%endif%}

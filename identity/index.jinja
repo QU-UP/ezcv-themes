@@ -54,11 +54,7 @@
 				<!-- Main -->
 					<section id="main">
 						<header>
-							{% if config['avatar'].startswith('http') or config['avatar'].startswith('images') %}
-							<span class="avatar"><img src="{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-							{% else %}
-							<span class="avatar"><img src="images/{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-							{% endif %}
+							<span class="avatar"><img src="{{ config['avatar'] | get_image_path }}" alt="{{ config['name'] }}" /></span>
 							<h1>{{ config["name"] }}</h1>
 							<em>{% if config['role'] %}  {{ config['role'] }}&nbsp;&bull;&nbsp;{% endif %} {% if config['company'] %}  {{ config['company'] }}{% endif %}</em>
 						</header>

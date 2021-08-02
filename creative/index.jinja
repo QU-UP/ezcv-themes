@@ -4,11 +4,11 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="author" content="{{config['name']}}" />
         <link rel="icon" type="image/png" href="images/favicon.png"/>
         <title>{{ config['name'] }}</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -57,8 +57,13 @@
                     {% endif %}
 
                     {% if projects_html %}
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Projects</a></li>
                     {% endif %}
+
+                    {% if gallery_html %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Gallery">Gallery</a></li>
+                    {% endif %}
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
 
                     {% if config["resume"] %}
@@ -94,8 +99,8 @@
         </section>
         {% endif %}
 
-
-        <!-- Services-->
+{% if projects_html %}
+        <!-- Projects-->
         <section class="page-section" id="services">
             <div class="container">
                 <h2 class="text-center mt-0">Projects</h2>
@@ -103,7 +108,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                            <i class="fas fa-4x fa-tools text-primary mb-4"></i>
                             <h3 class="h4 mb-2">Check out my projects below</h3>
                         </div>
                     </div>
@@ -112,6 +117,27 @@
         </section>
 
         {{ projects_html | safe }}
+{%endif%}
+
+{% if gallery_html %}
+        <!-- Gallery-->
+        <section class="page-section" id="Gallery">
+            <div class="container">
+                <h2 class="text-center mt-0">Gallery</h2>
+                <hr class="divider my-4" />
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-camera text-primary mb-4"></i>
+                            <h3 class="h4 mb-2">Check out some of my images below</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{ gallery_html | safe}}
+{% endif %}
 
 {% if config['phone'] or config['email'] %}
         <!-- Contact-->

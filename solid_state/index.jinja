@@ -229,11 +229,7 @@
 										<article>
 
 											{% if project[0]["image"] %}
-												{% if project[0]["image"].startswith("http") or project[0]["image"].startswith("images") %} 
-												<a href="{{ project[0]['link'] }}" class="image" target="_blank"><img src="{{ project[0]['image'] }}" alt="{{ project[0]['title'] }}" /></a>
-												{% else %}
-												<a href="{{ project[0]['link'] }}" class="image" target="_blank"><img src="images/{{ project[0]['image'] }}" alt="{{ project[0]['title'] }}" /></a>
-												{%endif%}
+												<a href="{{ project[0]['link'] }}" class="image" target="_blank"><img src="{{ project[0]['image'] | get_image_path}}" alt="{{ project[0]['title'] }}" /></a>
 											{% endif %}
 											
 											<h3 class="major">{{ project[0]['title'] }}</h3>
