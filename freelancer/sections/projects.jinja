@@ -19,9 +19,7 @@
                         <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
                     {% if project[0]["image"] %}
-                    <img class="img-fluid" src="images/{{ project[0]['image'] }}" alt="{{ project[0]['title'] }}" style="width:332px; height:240px;"/>
-                    {% else %}
-                    <img class="img-fluid" src="images/portfolio/cabin.png" alt="{{ project[0]['title'] }}" />
+                    <img class="img-fluid" src="{{ project[0]['image'] | get_image_path}}" alt="{{ project[0]['title'] }}" style="width:332px; height:240px;"/>
                     {% endif %}
                 </div>
             </div>
@@ -54,7 +52,7 @@
                             </div>
                             <!-- Portfolio Modal - Image-->
                             {% if project[0]["image"] %}
-                            <img class="img-fluid rounded mb-5" src="images/{{ project[0]['image'] }}" alt="{{ project[0]['title'] }}" />
+                            <img class="img-fluid rounded mb-5" src="{{ project[0]['image'] | get_image_path }}" alt="{{ project[0]['title'] }}" />
                             {% else %}
                             <img class="img-fluid rounded mb-5" src="images/portfolio/cabin.png" alt="{{ project[0]['title'] }}" />
                             {% endif %}

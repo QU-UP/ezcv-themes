@@ -1,0 +1,26 @@
+                <!-- Featured Project Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center" id="work-experience">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="images/section-headings/work.jpg" alt="work" /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>Work Experience</h4>
+                        </div>
+                    </div>
+                </div>
+
+                {% for experience in work_experience %}
+                <div class="{{ loop.cycle('row gx-0 mb-5 mb-lg-0 justify-content-center', 'row gx-0 justify-content-center') }}">
+                    <div class="col-lg-12 ">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center ">
+                                    <h4 class="text-white">{{ experience[0]['company'] }} | {{ experience[0]['role'] }}</h4>
+                                    <h6 class="text-white">{{experience[0]["month_started"] | pretty_datetime(experience[0]["year_started"], experience[0]["month_ended"], experience[0]["year_ended"], experience[0]["current"])}}</h6>
+                                    {{ experience[1] | safe }}
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}

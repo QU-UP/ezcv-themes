@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
 		{% if config["background"] %}
 		<style>
 			{% if config['background'].startswith('http') or config['background'].startswith('images') %}
@@ -20,6 +21,17 @@
 			{% endif %}
 		</style>
 		{% else %}
+		{% endif %}
+
+		{% if config["ua_code"] %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{config["ua_code"]}}');
+		</script>
 		{% endif %}
 	</head>
 
@@ -66,6 +78,9 @@
 								{% if config['phone'] %} 
 								<li><a href="tel:{{config['phone']}}" class="icon solid fa-phone" target="_blank"><span class="label">phone</span></a></li>
 								{% endif %}
+								{% if config["resume"] %}
+								<li><a href="/resume.html" class="icon solid fa-address-card" target="_blank"><span class="label">resume</span></a></li>
+								{%endif%}
 							</ul>
 						</nav>
 					</header>

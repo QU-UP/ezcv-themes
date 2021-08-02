@@ -11,6 +11,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
+		{% if config["ua_code"] %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{config["ua_code"]}}');
+		</script>
+		{% endif %}
 	</head>
 	<body class="is-preload">
 		{% if config["background"] %}
@@ -43,11 +54,7 @@
 				<!-- Main -->
 					<section id="main">
 						<header>
-							{% if config['avatar'].startswith('http') or config['avatar'].startswith('images') %}
-							<span class="avatar"><img src="{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-							{% else %}
-							<span class="avatar"><img src="images/{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-							{% endif %}
+							<span class="avatar"><img src="{{ config['avatar'] | get_image_path }}" alt="{{ config['name'] }}" /></span>
 							<h1>{{ config["name"] }}</h1>
 							<em>{% if config['role'] %}  {{ config['role'] }}&nbsp;&bull;&nbsp;{% endif %} {% if config['company'] %}  {{ config['company'] }}{% endif %}</em>
 						</header>
@@ -84,6 +91,9 @@
 								{% if config['phone'] %} 
 								<li><a href="tel:{{config['phone']}}" class="icon solid fa-phone" target="_blank"><span class="label">phone</span></a></li>
 								{% endif %}
+								{% if config['resume'] %} 
+								<li><a href="/resume.html" class="icon solid fa-address-card" target="_blank"><span class="label">Resume</span></a></li>
+								{% endif %}
 							</ul>
 						</footer>
 					</section>
@@ -104,6 +114,7 @@
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
 			</script>
+			<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 	</body>
 </html>

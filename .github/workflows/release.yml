@@ -21,6 +21,8 @@ jobs:
         for theme in */ ; do
             if [ -d "$theme" ]; then
                 echo "${theme%/}"
+                echo "Copying resume.jinja to $theme"
+                cp resume.jinja $theme/resume.jinja
                 FILENAME="${theme%/}_${{ github.event.inputs.version_number }}.zip"
                 echo "$FILENAME $theme"
                 zip -r $FILENAME $theme

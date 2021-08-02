@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Lens by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{ config["name"] }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
+		{% if config["ua_code"] %}
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+			<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', '{{config["ua_code"]}}');
+			</script>
+		{% endif %}
+	</head>
+	<body class="is-preload-0 is-preload-1 is-preload-2">
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>{{ config["name"] }}</h1>
+						{% if config["role"] or config["company"] %}
+						<h2>{% if config["role"] %} {{ config["role"] }} | {%endif%} {% if config["company"]%} {{ config["company"] }}{%endif%}</h2>
+						{%endif%}
+
+
+							{% if config["biography"] %}
+							<p>								
+							{{ config["biography"] | safe }}
+							</p>
+							{%endif%}
+						<ul class="icons">
+									{% if config['social']["github"] %}
+									<li><a href="https://github.com/{{config['social']['github']}}" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+									{% endif %}
+									{% if config['social']["youtube"] %}
+									<li><a href="https://youtube.com/{{config['social']['youtube']}}" class="icon brands fa-youtube" target="_blank"><span class="label">YouTube</span></a></li>
+									{% endif %}
+									{% if config['social']["twitch"] %}
+									<li><a href="https://twitch.tv/{{config['social']['twitch']}}" class="icon brands fa-twitch" target="_blank"><span class="label">Twitch</span></a></li>
+									{% endif %}
+									{% if config['social']["twitter"] %}
+									<li><a href="https://www.twitter.com/{{config['social']['twitter']}}" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+									{% endif %}
+									{% if config['social']["instagram"] %}
+									<li><a href="https://www.instagram.com/{{config['social']['instagram']}}" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+									{% endif %}
+									{% if config['social']["facebook"] %}
+									<li><a href="https://www.facebook.com/{{config['social']['facebook']}}" class="icon brands fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+									{% endif %}
+									{% if config['social']["linkedin"] %}
+									<li><a href="https://www.instagram.com/{{config['social']['instagram']}}" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+									{% endif %}
+									{% if config['social']["snapchat"] %} 
+									<li><a href="https://snapchat.com/add/{{config['social']['snapchat']}}" class="icon brands fa-snapchat" target="_blank"><span class="label">snapchat</span></a></li>
+									{% endif %}
+									{% if config['email'] %} 
+									<li><a href="mailto:{{config['email']}}" class="icon solid fa-envelope" target="_blank"><span class="label">email</span></a></li>
+									{% endif %}
+									{% if config['phone'] %} 
+									<li><a href="tel:{{config['phone']}}" class="icon solid fa-phone" target="_blank"><span class="label">phone</span></a></li>
+									{% endif %}
+						</ul>
+					</header>
+
+				<!-- gallery -->
+				{{ gallery_html | safe }}
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li><p class="copyright">&copy; {{ config["name"] }} 2021. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. </br>Built using: <a href="https://ezcv.readthedocs.io" target="_blank">ezcv</a>.</p></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/browser.min.js"></script>
+			<script src="js/breakpoints.min.js"></script>
+			<script src="js/main.js"></script>
+			<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+	</body>
+</html>

@@ -10,6 +10,17 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
+		{% if config["ua_code"] %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{config["ua_code"]}}');
+		</script>
+		{% endif %}
 
 		{% if config['background'] %}
 		<style> 
@@ -91,11 +102,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					{% if config["avatar"].startswith("http") or config["avatar"].startswith("images") %}
-					<a href="#" class="image avatar"><img src="{{ config['avatar'] }}" alt="{{ config['name'] }}" /></a>
-            		{% else %}
-        			<a href="#" class="image avatar"><img src="images/{{ config['avatar'] }}" alt="{{ config['name'] }}" /></a>
-            		{% endif %}
+					<a href="#" class="image avatar"><img src="{{ config['avatar'] | get_image_path}}" alt="{{ config['name'] }}" /></a>
 					<h1><strong>{{ config["name"] }}</strong><br />
 						{% if config["company"] and config["role"] %}
 						<em>{{ config["company"] }} | {{ config["role"] }}</em>
@@ -166,6 +173,9 @@
 						{% if config['phone'] %} 
 						<li><a href="tel:{{config['phone']}}" class="icon solid fa-phone" target="_blank"><span class="label">phone</span></a></li>
                         {% endif %}
+						{% if config['resume'] %} 
+						<li><a href="/resume.html" class="icon solid fa-address-card" target="_blank"><span class="label">Resume</span></a></li>
+                        {% endif %}
 					</ul>
 					<ul class="copyright">
 						<li><p class="copyright">&copy; {{ config["name"] }} 2020. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. </br>Built using: <a href="https://ezcv.readthedocs.io" target="_blank">ezcv</a>.</p></li>
@@ -180,6 +190,7 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
+			<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 	</body>
 </html>

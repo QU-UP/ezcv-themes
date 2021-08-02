@@ -1,0 +1,37 @@
+                <!-- Featured Project Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-right">
+                            <h4>Projects</h4>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="images/section-headings/projects.jpg" alt="projects" /></div>
+                </div>
+
+
+                {% for project in projects %}
+                <div class="{{ loop.cycle('row gx-0 mb-5 mb-lg-0 justify-content-center', 'row gx-0 justify-content-center') }}">
+                    {% if project[0]["image"] %}
+                    <div class="col-lg-6"><img class="img-fluid project-img" src="{{ project[0]['image'] | get_image_path }}" alt="{{ project[0]['image'] | get_filename_without_extension }}" /></div>
+                    {% else %}
+                    <div class="col-lg-6"><img class="img-fluid project-img" src="images/black.jpg" alt="Black image" /></div>
+                    {% endif %}
+                    <div class="col-lg-6 {{ loop.cycle('', 'order-lg-first') }}">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center {{ loop.cycle('text-lg-left', 'text-lg-right') }}">
+                                    <h4 class="text-white">{{ project[0]['title'] }}</h4>
+                                    {{ project[1] | safe }}
+
+                                    {% if project[0]["link"] %}
+                                    <a class="btn btn-primary" href="{{ project[0]['link'] }}" target="_blank">Check out the project</a>
+                                    {%endif%}
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+

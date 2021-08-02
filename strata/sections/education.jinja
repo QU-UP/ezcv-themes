@@ -2,7 +2,7 @@
 <div class="row">
     {% for experience in education %}
     <article class="col-6 col-12-xsmall work-item">
-        <h3>{{ experience[0]["institution"] }}</h3>
+        <h3>{{ experience[0]["institution"] }} {% if experience[0]["title"] %}| {{ experience[0]["title"] }}{% endif %}</h3>
         <em>{{ experience[0]["year_started"] }} {% if experience[0]["current"] %}- Present{% endif %}{% if experience[0]["year_ended"] %}- {{ experience[0]["year_ended"] }}{%endif%}</em>
         {{ experience[1] | safe }}
     </article>

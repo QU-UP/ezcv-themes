@@ -10,17 +10,24 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
+		{% if config["ua_code"] %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{config["ua_code"]}}');
+		</script>
+		{% endif %}
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<section id="header">
 				<header>
-					{% if config['avatar'].startswith('http') or config['avatar'].startswith('images') %}
-					<span class="image avatar"><img src="{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-					{% else %}
-					<span class="image avatar"><img src="images/{{ config['avatar'] }}" alt="{{ config['name'] }}" /></span>
-					{% endif %}
+					<span class="image avatar"><img src="{{ config['avatar'] | get_image_path}}" alt="{{ config['name'] }}" /></span>
 					<h1 id="logo">{{ config["name"] }}</h1>
 					<em>{% if config['role'] %}  {{ config['role'] }}&nbsp;&bull;&nbsp;{% endif %} {% if config['company'] %}  {{ config['company'] }}{% endif %}</em>
 				</header>
@@ -31,8 +38,10 @@
 						<li><a href="#two">Experience</a></li>
 						{% endif %}
 						{% if projects_html %}
-
 						<li><a href="#three">Projects</a></li>
+						{% endif %}
+						{% if config['resume'] %} 
+						<li><a href="/resume.html">Resume</a></li>
 						{% endif %}
 					</ul>
 				</nav>
@@ -81,11 +90,7 @@
 						<!-- About -->
 							<section id="one">
 								<div class="image main" data-position="center">
-								{% if config['background'].startswith('http') or config['background'].startswith('images') %}
-									<img src="{{ config['background'] }}" alt="{{ config['name'] }}" />
-								{% else %}
-									<img src="images/{{ config['background'] }}" alt="{{ config['name'] }}" />
-								{% endif %}
+								<img src="{{ config['background'] | get_image_path }}" alt="{{ config['name'] }}" />
 								</div>
 								<div class="container">
 									<header class="major">
@@ -141,6 +146,7 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
+			<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 	</body>
 </html>
