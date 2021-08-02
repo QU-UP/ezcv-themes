@@ -14,7 +14,7 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center ">
-                                    <h4 class="text-white">{{ experience[0]["institution"] }} | {{ experience[0]["title"] }}</h4>
+                                    <h4 class="text-white">{{ experience[0]["institution"] }} {% if experience[0]["title"] %} | {{ experience[0]["title"] }}{% endif %}</h4>
                                     <h6 class="text-white">{{experience[0]["month_started"] | pretty_datetime(experience[0]["year_started"], experience[0]["month_ended"], experience[0]["year_ended"], experience[0]["current"])}}</h6>
                                     {{ experience[1] | safe }}
                                     <hr class="d-none d-lg-block mb-0 ms-0" />

@@ -10,7 +10,7 @@
                             {% for experience in education %}
                             <div class="col-md-12">
                                 <h6 class="text-center text-uppercase text-white">
-                                {{ experience[0]["institution"] }} | {{ experience[0]["year_started"] }} {% if experience[0]["current"] %}- Present{% endif %}{% if experience[0]["year_ended"] %}- {{ experience[0]["year_ended"] }}{%endif%}
+                                {{ experience[0]["institution"] }} | {{ experience[0]["year_started"] }} {% if experience[0]["current"] %}- Present{% endif %}{% if experience[0]["year_ended"] %}- {{ experience[0]["year_ended"] }}{%endif%} {% if experience[0]["title"] %} | {{ experience[0]["title"] }}{% endif %}
                                 </h6>
                                 <p class="lead">{{ experience[1] |safe}}</p>
                             </div>

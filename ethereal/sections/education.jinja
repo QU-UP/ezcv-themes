@@ -11,7 +11,7 @@
 <section class="panel color4">
     <div class="intro joined">
     {% for experience in education %}
-        <h4 class="major">{{ experience[0]["institution"] }}</h4>
+        <h4 class="major">{{ experience[0]["institution"] }} {% if experience[0]["title"] %} | {{ experience[0]["title"] }}{% endif %}</h4>
         <em>{{ experience[0]["year_started"] }} {% if experience[0]["current"] %}- Present{% endif %}{% if experience[0]["year_ended"] %}- {{ experience[0]["year_ended"] }}{%endif%}</em>
         <p>{{ experience[1] | safe }}</p>
     {% endfor %}
