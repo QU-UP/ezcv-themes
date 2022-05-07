@@ -1,0 +1,135 @@
+<!--TODO-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{ config["name"] }} | Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--highlightjs-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
+		<script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		<link rel="icon" type="image/png" href="images/favicon.png"/>
+		{% if config["ua_code"] %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{config["ua_code"]}}');
+		</script>
+		{% endif %}
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">{{ config["name"] }}</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/#one">Home</a></li>
+								{% if config["resume"] %}
+								<li><a href="/resume.html">Resume</a></li>
+								{% endif %}
+								<li><a href="/blog">Blog</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Blog</h2>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+									<section class="features">
+										{{ blog_html | safe }}
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+<!-- Footer -->
+					<section id="footer">
+					</br>
+					</br>
+					<div class="inner">
+					{% if config["social"] %}
+					<h2 class="major">Reach out!</h2>
+					<p>Ceck out some of my social media below </p>
+						<ul class="contact">
+							{% if config['social']["github"] %}
+							<li class="icon brands fa-github"><a href="https://github.com/{{config['social']['github']}}" target="_blank">{{config['social']['github']}}</a></li>
+							{% endif %}
+							{% if config['social']["youtube"] %}
+							<li class="icon brands fa-youtube"><a href="https://youtube.com/{{config['social']['youtube']}}" target="_blank">YouTube</a></li>
+							{% endif %}
+							{% if config['social']["twitch"] %}
+							<li class="icon brands fa-twitch"><a href="https://twitch.tv/{{config['social']['twitch']}}" target="_blank">{{config['social']['twitch']}}</a></li>
+							{% endif %}
+							{% if config['social']["twitter"] %}
+							<li class="icon brands fa-twitter"><a href="https://www.twitter.com/{{config['social']['twitter']}}"target="_blank">{{config['social']['twitter']}}</a></li>
+							{% endif %}
+							{% if config['social']["instagram"] %}
+							<li class="icon brands fa-instagram"><a href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank">{{config['social']['instagram']}}</a></li>
+							{% endif %}
+							{% if config['social']["facebook"] %}
+							<li class="icon brands fa-facebook"><a href="https://www.facebook.com/{{config['social']['facebook']}}" target="_blank">Facebook</a></li>
+							{% endif %}
+							{% if config['social']["linkedin"] %}
+							<li class="icon brands fa-linkedin-in"><a href="https://www.instagram.com/{{config['social']['linkedin']}}" target="_blank">{{config['social']['linkedin']}}</a></li>
+							{% endif %}
+							{% if config['social']["snapchat"] %} 
+							<li class="icon brands fa-snapchat"><a href="https://snapchat.com/add/{{config['social']['snapchat']}}" target="_blank">{{config['social']['snapchat']}}</a></li>
+							{% endif %}
+							{% if config['email'] %} 
+							<li class="icon solid fa-envelope"><a href="mailto:{{config['email']}}" target="_blank">{{config['email']}}</a></li>
+							{% endif %}
+							{% if config['phone'] %} 
+							<li class="icon solid fa-phone"><a href="tel:{{config['phone']}}" target="_blank">{{config['phone']}}</a></li>
+							{% endif %}
+							</ul>
+					{% endif %}
+							
+							<ul class="copyright">
+								<li>&copy; {{ config["name"] }} 2020. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. Built using: <a href="https://ezcv.readthedocs.io" target="_blank">ezcv</a>.</li>
+							</ul>
+							</div>
+						
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.scrollex.min.js"></script>
+			<script src="js/browser.min.js"></script>
+			<script src="js/breakpoints.min.js"></script>
+			<script src="js/util.js"></script>
+			<script src="js/main.js"></script>
+
+	</body>
+
+</html>

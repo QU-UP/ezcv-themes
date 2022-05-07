@@ -1,0 +1,43 @@
+created: 2022-4-22
+ezcv_version: 0.3.0
+folder: grayscale
+name: grayscale
+sections:
+  blog:
+    feed: true
+    overview: true
+    single: true
+    type: blog
+  education:
+    fields:
+      current: bool
+      institution: str
+      title: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  projects:
+    fields:
+      image: str
+      link: str
+      title: str
+    type: markdown
+  volunteering_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  work_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+updated: 2022-4-22

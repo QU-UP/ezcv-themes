@@ -71,6 +71,10 @@
                     {% if education_html %}
                         <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     {%endif%}
+
+                    {% if blog_html %}
+                        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    {% endif %}
                     </ul>
                 </div>
             </div>
@@ -99,6 +103,21 @@
                 {{ volunteering_experience_html | safe }}
 
                 {{ education_html | safe }}
+
+                {% if blog_html %}
+                                <!-- Featured Project Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center" id="blog">
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-right">
+                            <h4>Blog</h4>
+                            <a class="btn btn-dark btn-sm" href="/blog">View All Blog Posts</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="images/section-headings/blog.jpg" alt="blog" /></div>
+                </div>
+                {{ blog_html | safe }}
+
+                {% endif %}
 
             </div>
         </section>
