@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>{{ config["name"] }}</title>
+		<title>{{ config["name"] }} | Blog</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--highlightjs-->
@@ -36,13 +36,7 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						{% if education_html or work_experience_html or volunteering_experience_html %}
-						<li><a href="#two">Experience</a></li>
-						{% endif %}
-						{% if projects_html %}
-						<li><a href="#three">Projects</a></li>
-						{% endif %}
+						<li><a href="/" class="active">Home</a></li>
 						{% if config['resume'] %} 
 						<li><a href="/resume.html">Resume</a></li>
 						{% endif %}
@@ -92,7 +86,6 @@
 
 				<!-- Main -->
 					<div id="main">
-
 						<!-- About -->
 							<section id="one">
 								<div class="image main" data-position="center">
@@ -100,37 +93,17 @@
 								</div>
 								<div class="container">
 									<header class="major">
-										<h2>{{ config["name"] }}</h2>
-										<p>About me</p>
+										<h2>{{ config["name"] }} | Blog</h2>
 									</header>
-									<p>{{ config["biography"] }}</p>
 								</div>
 							</section>
-						
-						{% if education_html or work_experience_html or volunteering_experience_html %}
 						<!-- Experience -->
 							<section id="two">
 								<div class="container">
-									<h3>Things I've done</h3>
-									<p>Below is a list of my experience!</p>
-									{{ education_html | safe }}
-									{{ work_experience_html | safe }}
-									{{ volunteering_experience_html | safe }}
+									<h3>Welcome to my blog!</h3>
+									{{ blog_html | safe}}
 								</div>
 							</section>
-						{% endif %}
-
-						{% if projects_html %}
-						<!-- Projects -->
-							<section id="three">
-								<div class="container">
-									<h3>A Few Accomplishments</h3>
-									<p>Check out some of the amazing projects I've worked on below!</p>
-									{{ projects_html | safe }}
-								</div>
-							</section>
-						{% endif %}
-
 					</div>
 
 				<!-- Footer -->

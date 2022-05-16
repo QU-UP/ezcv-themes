@@ -1,0 +1,18 @@
+<!--TODO-->
+
+{% for post in blog %}
+<div class="{{ loop.cycle('row gx-0 mb-5 mb-lg-0 justify-content-center', 'row gx-0 justify-content-center') }}">
+        <div class="col-lg-12 ">
+        <div class="bg-black text-center h-100 project">
+                <div class="d-flex h-100">
+                <div class="project-text w-100 my-auto text-center ">
+                        <h4 class="text-white">{{ post[0]["title"] }}</h4>
+                        <h6 class="text-white">Created: {{ post[0]["created"] }} <br>Updated: {{ post[0]["updated"] }}</h6>
+                        <a class="text-white btn btn-dark" href="/{{ post[0]['title'] }}"><h6>Click to view</h6></a>
+                        <hr class="d-none d-lg-block mb-0 ms-0" />
+                </div>
+                </div>
+        </div>
+        </div>
+</div>
+{% endfor %}

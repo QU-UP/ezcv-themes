@@ -1,0 +1,14 @@
+created: 2022-4-22
+ezcv_version: 0.3.0
+folder: creative
+name: creative
+sections:
+  gallery:
+    type: gallery
+  projects:
+    fields:
+      image: str
+      link: str
+      title: str
+    type: markdown
+updated: 2022-4-22

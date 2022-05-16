@@ -1,0 +1,11 @@
+<!--TODO-->
+
+{% for post in blog %}
+<article style="background-color: #fbfbfb; margin-bottom: 10px;">
+        <a href="/{{ post[0]['title'] }}"></a>
+        <h3 class="major">{{ post[0]["title"] }}</h3>
+        <p>Created: {{ post[0]["created"] }} <br>Updated: {{ post[0]["updated"] }}</p>
+        <a href="/{{ post[0]['title'] }}" class="special">Click to read!</a>
+</article>
+{% endfor %}
+
