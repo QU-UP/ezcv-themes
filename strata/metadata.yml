@@ -1,7 +1,20 @@
 created: 2022-4-22
-ezcv_version: 0.3.0
+ezcv_version: 0.3.4
 folder: strata
 name: strata
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
+  avatar:
+    type: str
+    default: https://minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg
+    description: "A path to an image of yourself (can also be a URL)"
+  biography:
+    type: str
+    default: "A description of yourself"
+    description: "This field is for writing about yourself you can add a > to span multiple lines"
 sections:
   education:
     fields:

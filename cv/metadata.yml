@@ -1,7 +1,12 @@
 created: 2022-4-22
-ezcv_version: 0.3.0
+ezcv_version: 0.3.4
 folder: cv
 name: cv
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
 sections:
   education:
     fields:
