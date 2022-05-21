@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta class="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>{{config["name"]}} | {{ content[0]['title'] }}</title>
+	<link rel="icon" type="image/png" href="images/favicon.png"/>
+	<!-- Don't forget to add your metadata here -->
+	<link rel='stylesheet' href='css/style.min.css' />
+</head>
+<body>
+	<!-- Hero(extended) navbar -->
+	<div class="navbar navbar--extended">
+		<nav class="nav__mobile"></nav>
+		<div class="container">
+			<div class="navbar__inner">
+				<a href="/" class="navbar__logo">{{config["name"]}}</a>
+				<nav class="navbar__menu">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/blog">Blog</a></li>
+						{% if config["resume"] %}
+						<li><a href="/resume" target="_blank">Resume</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
+			</div>
+		</div>
+	</div>
+	<!-- Hero unit -->
+	<div class="page__header">
+		<div class="hero__overlay hero__overlay--gradient"></div>
+		<div class="hero__mask"></div>
+		<div class="page__header__inner">
+			<div class="container">
+				<div class="page__header__content">
+					<div class="page__header__content__inner" id='navConverter'>
+						<h1 class="page__header__title">{{ content[0]['title'] }}</h1>
+						<p class="page__header__text">Current: {{ content[0]['created'] }} <br>Updated: {{ content[0]['updated'] }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page content -->
+	<div class="page" style="min-height: 65vh;padding:0;">
+		<div class="container">
+			<div class="page__inner">
+				<div class="page__main">
+					<div class="text-container">
+						{{ content[1] | safe }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Footer -->
+	<div class="footer footer--dark">
+		<div class="container">
+			<div class="footer__inner">
+				<a href="/" class="footer__textLogo">{{config["name"]}}</a>
+				<div class="footer__data">
+					<div class="footer__data__item">
+						<div class="footer__row">
+						<h3 style="color:#f0f0f0"> Acknowledgements </h3>
+						</div>
+						<div class="footer__row">
+							Theme Created by <a href="https://twitter.com/ninalimpi" target="_blank" class="footer__link">Katerina Limpitsouni</a>
+						</div>
+						<div class="footer__row">
+							Theme Code/design by <a href="https://twitter.com/anges244" target="_blank" class="footer__link">Aggelos Gesoulis</a>
+						</div>
+						<div class="footer__row">
+						<a href="https://github.com/descent098/ezcv" target="_blank" class="footer__link">Created with ezcv</a>
+						</div>
+					</div>
+					{% if config['social'] %}
+					<div class="footer__data__item">
+						<div class="footer__row">
+						<h3 style="color:#f0f0f0"> Follow me </h3>
+						</div>
+						{% if config['social']["github"] %}
+						<div class="footer__row">
+							<a href="https://github.com/{{config['social']['github']}}" target="_blank" class="footer__link">GitHub</a>
+						</div>
+						{% endif %}
+						{% if config['social']["youtube"] %}
+						<div class="footer__row">
+							<a href="https://youtube.com/{{config['social']['youtube']}}" target="_blank" class="footer__link">YouTube</a>
+						</div>
+						{% endif %}
+						{% if config['social']["twitch"] %}
+						<div class="footer__row">
+							<a href="https://twitch.tv/{{config['social']['twitch']}}" target="_blank" class="footer__link">Twitch</a>
+						</div>
+						{% endif %}
+						{% if config['social']["twitter"] %}
+						<div class="footer__row">
+							<a href="https://www.twitter.com/{{config['social']['twitter']}}" target="_blank" class="footer__link">Twitter</a>
+						</div>
+						{% endif %}
+						{% if config['social']["instagram"] %}
+						<div class="footer__row">
+							<a href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank" class="footer__link">Instagram</a>
+						</div>
+						{% endif %}
+						{% if config['social']["facebook"] %}
+						<div class="footer__row">
+							<a href="https://www.facebook.com/{{config['social']['facebook']}}" target="_blank" class="footer__link">Facebook</a>
+						</div>
+						{% endif %}
+						{% if config['social']["linkedin"] %}
+						<div class="footer__row">
+							<a href="https://www.linkedin.com/in/{{config['social']['instagram']}}" target="_blank" class="footer__link">LinkedIn</a>
+						</div>
+						{% endif %}
+						{% if config['social']["snapchat"] %} 
+						<div class="footer__row">
+							<a href="https://snapchat.com/add/{{config['social']['snapchat']}}" target="_blank" class="footer__link">Snapchat</a>
+						</div>
+						{% endif %}
+						{% if config['email'] %} 
+						<div class="footer__row">
+							<a href="mailto:{{config['email']}}" target="_blank" class="footer__link">{{config['email']}}</a>
+						</div>
+						{% endif %}
+						{% if config['phone'] %} 
+						<div class="footer__row">
+							<a href="tel:{{config['phone']}}" target="_blank" class="footer__link">{{config['phone']}}</a>
+						</div>
+						{% endif %}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+<script src='js/app.min.js'></script>
+</body>
+</html>

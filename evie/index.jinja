@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta class="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>{{config["name"]}}</title>
+	<link rel="icon" type="image/png" href="images/favicon.png"/>
+	<!-- Don't forget to add your metadata here -->
+	<link rel='stylesheet' href='css/style.min.css' />
+</head>
+<style>
+.hero{
+	background-image: url({{config["background"]}}) !important;
+}
+</style>
+<body>
+	<!-- Hero(extended) navbar -->
+	<div class="navbar navbar--extended">
+		<nav class="nav__mobile"></nav>
+		<div class="container">
+			<div class="navbar__inner">
+				<a href="/" class="navbar__logo">{{config["name"]}}</a>
+				<nav class="navbar__menu">
+					<ul>
+						{% if education_html %}
+						<li><a href="#education">Education</a></li>
+						{% endif %}
+						{% if work_experience_html %}
+						<li><a href="#work-experience">Work Experience</a></li>
+						{% endif %}
+						{% if volunteering_experience_html %}
+						<li><a href="#volunteering-experience">Volunteering Experience</a></li>
+						{% endif %}
+						{% if blog_html %}
+						<li><a href="/blog">Blog</a></li>
+						{% endif %}
+						{% if config["resume"] %}
+						<li><a href="/resume" target="_blank">Resume</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
+			</div>
+		</div>
+	</div>
+	<!-- Hero unit -->
+	<div class="hero">
+		<div class="hero__overlay hero__overlay--gradient"></div>
+		<div class="hero__mask"></div>
+		<div class="hero__inner">
+			<div class="container">
+				<div class="hero__content">
+					<div class="hero__content__inner" id='navConverter'>
+						<h1 class="hero__title">{{config["name"]}}</h1>
+						{% if config["role"] or config["company"] %}
+						<h2 class="hero__text" style="color:#f0f0f0;text-align:center;">{% if config["role"] and config["company"] %}{{config["role"]}} | {{config["company"]}}{%else%}{% if config["role"] %}{{config["role"]}}{%endif%} {% if config["company"] %}{{config["company"]}}{%endif%}{%endif%}</h2>
+						{% endif %}
+						<p class="hero__text">{{config["biography"]}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero__sub">
+		<span id="scrollToNext" class="scroll">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class='hero__sub__down' fill="currentColor" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3z"/></svg>
+		</span>
+	</div>
+	<!-- Expanded sections -->
+	{{ education_html | safe}}
+	{{ work_experience_html | safe}}
+	{{ volunteering_experience_html | safe}}
+	<!-- Footer -->
+	<div class="footer footer--dark">
+		<div class="container">
+			<div class="footer__inner">
+				<a href="/" class="footer__textLogo">{{config["name"]}}</a>
+				<div class="footer__data">
+					<div class="footer__data__item">
+						<div class="footer__row">
+						<h3 style="color:#f0f0f0"> Acknowledgements </h3>
+						</div>
+						<div class="footer__row">
+							Theme Created by <a href="https://twitter.com/ninalimpi" target="_blank" class="footer__link">Katerina Limpitsouni</a>
+						</div>
+						<div class="footer__row">
+							Theme Code/design by <a href="https://twitter.com/anges244" target="_blank" class="footer__link">Aggelos Gesoulis</a>
+						</div>
+						<div class="footer__row">
+						<a href="https://github.com/descent098/ezcv" target="_blank" class="footer__link">Created with ezcv</a>
+						</div>
+					</div>
+					{% if config['social'] %}
+					<div class="footer__data__item">
+						<div class="footer__row">
+						<h3 style="color:#f0f0f0"> Follow me </h3>
+						</div>
+						{% if config['social']["github"] %}
+						<div class="footer__row">
+							<a href="https://github.com/{{config['social']['github']}}" target="_blank" class="footer__link">GitHub</a>
+						</div>
+						{% endif %}
+						{% if config['social']["youtube"] %}
+						<div class="footer__row">
+							<a href="https://youtube.com/{{config['social']['youtube']}}" target="_blank" class="footer__link">YouTube</a>
+						</div>
+						{% endif %}
+						{% if config['social']["twitch"] %}
+						<div class="footer__row">
+							<a href="https://twitch.tv/{{config['social']['twitch']}}" target="_blank" class="footer__link">Twitch</a>
+						</div>
+						{% endif %}
+						{% if config['social']["twitter"] %}
+						<div class="footer__row">
+							<a href="https://www.twitter.com/{{config['social']['twitter']}}" target="_blank" class="footer__link">Twitter</a>
+						</div>
+						{% endif %}
+						{% if config['social']["instagram"] %}
+						<div class="footer__row">
+							<a href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank" class="footer__link">Instagram</a>
+						</div>
+						{% endif %}
+						{% if config['social']["facebook"] %}
+						<div class="footer__row">
+							<a href="https://www.facebook.com/{{config['social']['facebook']}}" target="_blank" class="footer__link">Facebook</a>
+						</div>
+						{% endif %}
+						{% if config['social']["linkedin"] %}
+						<div class="footer__row">
+							<a href="https://www.linkedin.com/in/{{config['social']['instagram']}}" target="_blank" class="footer__link">LinkedIn</a>
+						</div>
+						{% endif %}
+						{% if config['social']["snapchat"] %} 
+						<div class="footer__row">
+							<a href="https://snapchat.com/add/{{config['social']['snapchat']}}" target="_blank" class="footer__link">Snapchat</a>
+						</div>
+						{% endif %}
+						{% if config['email'] %} 
+						<div class="footer__row">
+							<a href="mailto:{{config['email']}}" target="_blank" class="footer__link">{{config['email']}}</a>
+						</div>
+						{% endif %}
+						{% if config['phone'] %} 
+						<div class="footer__row">
+							<a href="tel:{{config['phone']}}" target="_blank" class="footer__link">{{config['phone']}}</a>
+						</div>
+						{% endif %}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+<script src='js/app.min.js'></script>
+</body>
+</html>
