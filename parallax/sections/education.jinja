@@ -1,0 +1,24 @@
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min" id="education">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">EDUCATION</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64">
+
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding w3-center">
+        {% for page in education %} <!--Lets you iterate through each page -->
+        <div class="w3-col m6">
+            <h3>{{ page[0]["institution"] }}  {% if page[0]["title"] %} | {{ page[0]["title"] }}{% endif %}</h3>
+            <h5>{{page[0]["month_started"] | pretty_datetime(page[0]["year_started"], page[0]["month_ended"], page[0]["year_ended"], page[0]["current"])}}</h5>
+            <hr>
+            <div>
+            {{ page[1] | safe }} <!--content access -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

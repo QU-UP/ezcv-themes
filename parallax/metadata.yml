@@ -1,0 +1,50 @@
+created: 2022-5-21
+ezcv_version: 0.3.3
+folder: parallax
+name: parallax
+required_config:
+  avatar:
+    default: https://minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg
+    description: A path to an image of yourself (can also be a URL)
+    type: str
+  background:
+    default: https://www.w3schools.com/w3images/parallax1.jpg
+    description: A path to an image to use as a background (can also be a URL)
+    type: str
+  biography:
+    default: A description of yourself
+    description: This field is for writing about yourself you can add a > to span
+      multiple lines
+    type: str
+  name:
+    default: name
+    description: Your full name
+    type: str
+sections:
+  education:
+    type: markdown
+    fields:
+      institution:
+        type: str
+        required: true
+  volunteering_experience:
+    type: markdown
+    fields:
+      company:
+        type: str
+        required: true
+      role:
+        type: str
+        required: true
+  work_experience:
+    type: markdown
+    fields:
+      company:
+        type: str
+        required: true
+      role:
+        type: str
+        required: true
+  gallery:
+    type: gallery
+updated: 2022-5-21
