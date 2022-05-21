@@ -1,0 +1,11 @@
+{% for post in blog %}
+
+<!-- Blog entry -->
+<div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container" style="padding: 15px;">
+		<h3><b> {{ post[0]["title"] }}</b></h3>
+		<h5>Title description, <span class="w3-opacity">Created: {{ post[0]["created"] }} updated:{{ post[0]["updated"] }}</span></h5>
+		<a href='{{ post[0]["title"] }}' style="background-color: #141414;color: #f0f0f0;padding: 10px;">Read more</a>
+    </div>
+</div>
+{% endfor %}
