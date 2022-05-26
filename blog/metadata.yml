@@ -1,0 +1,34 @@
+created: 2022-5-21
+ezcv_version: 0.3.3
+folder: blog
+name: blog
+required_config:
+  avatar:
+    type: str
+    default: https://minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg
+    description: "A path to an image of yourself (can also be a URL)"
+  name:
+    type: str
+    default: name
+    description: "Your full name"
+  biography:
+    type: str
+    default: "A description of yourself"
+    description: "This field is for writing about yourself you can add a > to span multiple lines"
+sections:
+  blog:
+    feed: true
+    fields:
+      created:
+        required: true
+        type: str
+      title:
+        required: true
+        type: str
+      updated:
+        required: true
+        type: str
+    overview: false
+    single: true
+    type: blog
+updated: 2022-5-21

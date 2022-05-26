@@ -1,5 +1,14 @@
 created: 2022-4-22
-ezcv_version: 0.3.0
+ezcv_version: 0.3.4
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
+  avatar:
+    type: str
+    default: https://minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg
+    description: "A path to an image of yourself (can also be a URL)"
 folder: identity
 name: identity
 updated: 2022-4-22

@@ -1,7 +1,16 @@
 created: 2022-4-22
-ezcv_version: 0.3.0
+ezcv_version: 0.3.4
 folder: solid_state
 name: solid_state
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
+  biography:
+    type: str
+    default: "A description of yourself"
+    description: "This field is for writing about yourself you can add a > to span multiple lines"
 sections:
   blog:
     feed: true

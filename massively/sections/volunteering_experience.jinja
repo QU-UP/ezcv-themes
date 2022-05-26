@@ -1,0 +1,18 @@
+<section class="post" id="volunteering">
+    <header class="major">
+        <h1>Volunteering Experience</h1>
+    </header>
+</section>
+
+<section class="posts"> 
+
+    {% for page in volunteering_experience %} <!--Lets you iterate through each page -->
+        <article class="post">
+            <header>
+                <h2>{{ page[0]["company"] }} {% if page[0]["role"] %} | {{ page[0]["role"] }}{% endif %}</h2>
+                <em>{{ page[0]["year_started"] }} {% if page[0]["current"] %}- Present{% endif %}{% if page[0]["year_ended"] %}- {{ page[0]["year_ended"] }}{%endif%}</em>
+            </header>
+            <p>{{ page[1] | safe }}</p>
+        </article>
+    {% endfor %}
+</section>

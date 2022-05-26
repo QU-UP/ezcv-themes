@@ -1,0 +1,59 @@
+created: 2022-5-19
+ezcv_version: 0.3.3
+folder: evie
+name: evie
+required_config:
+  background:
+    default: /images/evie_default_bg.jpeg
+    description: A path to an image to use as a background
+    type: str
+  biography:
+    default: A description of yourself
+    description: This field is for writing about yourself you can add a > to span
+      multiple lines
+    type: str
+  name:
+    default: name
+    description: Your full name
+    type: str
+sections:
+  blog:
+    feed: true
+    fields:
+      created:
+        required: true
+        type: str
+      title:
+        required: true
+        type: str
+      updated:
+        required: true
+        type: str
+    overview: true
+    single: true
+    type: blog
+  education:
+    type: markdown
+    fields:
+      institution:
+        type: str
+        required: true
+  volunteering_experience:
+    type: markdown
+    fields:
+      company:
+        type: str
+        required: true
+      role:
+        type: str
+        required: true
+  work_experience:
+    type: markdown
+    fields:
+      company:
+        type: str
+        required: true
+      role:
+        type: str
+        required: true
+updated: 2022-5-19

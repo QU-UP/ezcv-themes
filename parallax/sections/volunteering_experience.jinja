@@ -1,0 +1,13 @@
+<div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m12 w3-container">
+        <h3 class="w3-center">VOLUNTEERING EXPERIENCE</h3>
+    </div>
+        {% for page in volunteering_experience %} <!--Lets you iterate through each page -->
+        <div class="w3-col m6 w3-container">
+            <h3>{{ page[0]["company"] }} | {{ page[0]["role"] }}</h3>
+            <h5>{{page[0]["month_started"] | pretty_datetime(page[0]["year_started"], page[0]["month_ended"], page[0]["year_ended"], page[0]["current"])}}</h5>
+            <hr>
+            {{ page[1] | safe }} <!--content access -->
+        </div>
+        {% endfor %}
+</div>

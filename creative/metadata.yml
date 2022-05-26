@@ -1,7 +1,12 @@
 created: 2022-4-22
-ezcv_version: 0.3.0
+ezcv_version: 0.3.4
 folder: creative
 name: creative
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
 sections:
   gallery:
     type: gallery

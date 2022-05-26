@@ -1,0 +1,52 @@
+created: 2022-5-25
+ezcv_version: 0.3.3
+folder: massively
+name: massively
+required_config:
+  name:
+    default: name
+    description: This is the users name
+    type: str
+sections:
+  blog:
+    feed: true
+    fields:
+      created:
+        required: true
+        type: str
+      title:
+        required: true
+        type: str
+      updated:
+        required: true
+        type: str
+    overview: true
+    single: true
+    type: blog
+  education:
+    fields:
+      current: bool
+      institution: str
+      title: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  volunteering_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  work_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+updated: 2022-5-25

@@ -1,0 +1,28 @@
+<div id="volunteering-experience" class="expanded landing__section">
+    <div class="container">
+        <div class="expanded__inner">
+            <div class="expanded__media">
+                <img src="./images/teamwork.svg" class="expanded__image">
+            </div>
+            <div class="expanded__content">
+                <h2 class="expanded__title">Volunteering Experience</h2>
+                <p class="expanded__text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="expanded landing__section">
+    <div class="container">
+        <div class="expanded__inner">
+            {% for page in volunteering_experience %} <!--Lets you iterate through each page -->
+            <div class="expanded__content">
+                <h2 class="expanded__title">{{ page[0]["company"] }} | {{ page[0]["role"] }}</h2>
+                <hr>
+                <p class="expanded__text">{{page[0]["month_started"] | pretty_datetime(page[0]["year_started"], page[0]["month_ended"], page[0]["year_ended"], page[0]["current"])}}</p>
+                <p class="expanded__text">{{ page[1] | safe }} <!--content access --></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+

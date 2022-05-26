@@ -1,0 +1,17 @@
+
+
+{% for post in blog %}
+<div class="expanded landing__section">
+    <div class="container">
+        <div class="expanded__inner">
+            <div class="expanded__content">
+                <h2 class="expanded__title">{{ post[0]['title'] }}</h2>
+                <hr>
+                <p class="expanded__text">Created: {{ post[0]["created"] }} updated:{{ post[0]["updated"] }}</p>
+                <p class="expanded__text">{{ post[1] | safe}}</p>
+				<a href="{{ post[0]['title'] }}" class="expanded__link">Read more</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
