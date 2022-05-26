@@ -1,0 +1,19 @@
+
+<section class="post" id="education">
+    <header class="major">
+        <h1>Education</h1>
+    </header>
+</section>
+
+<section class="posts"> 
+
+    {% for page in education %} <!--Lets you iterate through each page -->
+        <article class="post">
+            <header>
+                <h2>{{ page[0]["institution"] }} {% if page[0]["title"] %} | {{ page[0]["title"] }}{% endif %}</h2>
+                <em>{{ page[0]["year_started"] }} {% if page[0]["current"] %}- Present{% endif %}{% if page[0]["year_ended"] %}- {{ page[0]["year_ended"] }}{%endif%}</em>
+            </header>
+            <p>{{ page[1] | safe }}</p>
+        </article>
+    {% endfor %}
+</section>

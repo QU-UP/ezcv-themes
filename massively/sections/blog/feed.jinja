@@ -1,0 +1,11 @@
+{% for post in blog %}
+<article>
+	<header>
+		<span class="date">Created: {{ post[0]["created"] }} updated:{{ post[0]["updated"] }}</span>
+		<h2><a href="{{ post[0]['title'] }}">{{ post[0]["title"] }}</a></h2>
+	</header>
+	<ul class="actions special">
+		<li><a href="{{ post[0]['title'] }}" class="button">Full Story</a></li>
+	</ul>
+</article>
+{% endfor %}
