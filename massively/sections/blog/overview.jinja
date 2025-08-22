@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		{% include "components/general/highlightjs.jinja" | safe %}
+		{% include "components/general/analytics.jinja" | safe %}
 	</head>
 	<body class="is-preload">
 
@@ -96,7 +98,7 @@
 						<ul><li>&copy; {{ config["name"]}}</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Built using: <a href="https://github.com/descent098/ezcv" target="_blank">ezcv</a></li></ul>
 					</div>
 			</div>
-				<!-- Scripts -->
+			<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -104,5 +106,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			{% include "components/general/mathjax.jinja" | safe %}
+			{% include "components/general/mermaid.jinja" | safe %}
 	</body>
 </html>

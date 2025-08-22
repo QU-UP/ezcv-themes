@@ -7,9 +7,6 @@
         <meta name="author" content="{{config['name']}}" />
         <link rel="icon" type="image/png" href="images/favicon.png"/>
         <title>{{ config['name'] }}</title>
-        <!--highlightjs-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
-        <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="images/favicon.png" />
         <!-- Font Awesome icons (free version)-->
@@ -21,17 +18,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-
-    {% if config["ua_code"] %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{config["ua_code"]}}');
-    </script>
-    {% endif %}
+        {% include "components/general/highlightjs.jinja" | safe %}
+		{% include "components/general/analytics.jinja" | safe %}
     
     {% if config["background"] %}
     <style>
@@ -194,5 +182,6 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    {% include "components/general/mathjax.jinja" | safe %}
+    {% include "components/general/mermaid.jinja" | safe %}
 </html>

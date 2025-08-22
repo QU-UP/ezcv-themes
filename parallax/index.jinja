@@ -8,19 +8,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" type="image/png" href="images/favicon.png"/>
-<!--highlightjs-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
-{% if config["ua_code"] %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '{{config["ua_code"]}}');
-</script>
-{% endif %}
+{% include "components/general/highlightjs.jinja" | safe %}
+{% include "components/general/analytics.jinja" | safe %}
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
@@ -188,6 +177,9 @@ body, html {
       {% if config['social']["twitter"] %}
         <a href="https://www.twitter.com/{{config['social']['twitter']}}" target="_blank" ><i class="fa fa-twitter w3-hover-opacity"></i></a>
       {% endif %}
+      {% if config['social']["x"] %}
+        <a href="https://www.x.com/{{config['social']['x']}}" target="_blank" ><i class="fa fa-twitter w3-hover-opacity"></i></a>
+      {% endif %}
       {% if config['social']["instagram"] %}
         <a href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
       {% endif %}
@@ -242,6 +234,7 @@ function toggleFunction() {
     }
 }
 </script>
-
+{% include "components/general/mathjax.jinja" | safe %}
+			{% include "components/general/mermaid.jinja" | safe %}
 </body>
 </html>

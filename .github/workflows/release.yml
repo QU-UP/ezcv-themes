@@ -5,7 +5,7 @@ on:
     inputs:
       version_number:
         description: The version number to release
-        default: "0.1.0"
+        default: "0.4.0"
         required: true
 
 jobs:
@@ -17,18 +17,45 @@ jobs:
 
     - name: Create zip files
       run: |
-        ls
+        IGNORE_DIRS=(".github" "components")
+        ls # For debugging
         for theme in */ ; do
+            # Remove trailing slash
+            theme_name="${theme%/}"
+            # Check if directory is in the ignore list
+            skip=false
+            for ignore in "${IGNORE_DIRS[@]}"; do
+                if [ "$theme_name" == "$ignore" ]; then
+                    skip=true
+                    break
+                fi
+            done
+            if [ "$skip" = true ]; then
+                echo "Skipping $theme_name"
+                continue
+            fi
             if [ -d "$theme" ]; then
                 echo "${theme%/}"
                 echo "Copying resume.jinja to $theme"
                 cp resume.jinja $theme/resume.jinja
+                echo "Copying /components into $theme/components (ignoring name collisions)"
+                for component_path in components/*; do
+                    component_name=$(basename "$component_path")
+                    target_path="$theme/components/$component_name"
+                    # Only copy if it doesn't already exist
+                    if [ ! -e "$target_path" ]; then
+                        mkdir -p "$theme/components"
+                        cp -r "$component_path" "$target_path"
+                    else
+                        echo "Skipping $component_name — already exists in $theme/components"
+                    fi
+                done
                 FILENAME="${theme%/}_${{ github.event.inputs.version_number }}.zip"
                 echo "$FILENAME $theme"
                 zip -r $FILENAME $theme
             fi
         done
-        ls
+        ls # For debugging
 
     - name: Create release draft
       uses: ncipollo/release-action@v1

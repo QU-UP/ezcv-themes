@@ -9,21 +9,10 @@
 		<title>{{ config["name"] }} | Blog</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--highlightjs-->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
-		<script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+		{% include "components/general/highlightjs.jinja" | safe %}
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="icon" type="image/png" href="images/favicon.png"/>
-		{% if config["ua_code"] %}
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', '{{config["ua_code"]}}');
-		</script>
-		{% endif %}
+{% include "components/general/analytics.jinja" | safe %}
 	</head>
 	<body class="is-preload">
 
@@ -125,7 +114,7 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
-			<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
+			{% include "components/general/mathjax.jinja" | safe %}
+			{% include "components/general/mermaid.jinja" | safe %}
 	</body>
 </html>

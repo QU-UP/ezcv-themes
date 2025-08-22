@@ -1,0 +1,18 @@
+{% if config["ua_code"] %}
+    <script>
+    console.error("Please note Google deprecated UA codes in the transition to GA4, you will need a GA4 measurement ID and set it as ga4_id in your config.yml: https://support.google.com/analytics/answer/9539598?hl=en")
+    </script>
+{% endif %}
+
+
+{% if config["ga4_id"] %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config['ga4_id'] }}"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', "{{ config['ga4_id'] }}");
+</script>
+{% endif %}

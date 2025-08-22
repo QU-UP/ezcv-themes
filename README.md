@@ -20,6 +20,14 @@ If you are requesting a new theme to be developed based on an online template, p
 To create a new theme please follow the guide in the [ezcv usage docs](https://ezcv.readthedocs.io/en/latest/theme-development/), then create a pull request with your theme and [open an issue](https://github.com/QU-UP/ezcv-themes/issues/new/choose) with the details about the theme and a link to the PR.
 
 
+## Building a release
+
+When building a release there is a pre-configured action that will set everything up, this action will essentially take every theme folder and:
+
+1. Copy `resume.jinja` into it
+2. Copy `/components` into it
+3. Zip the file with the version number
+4. Draft a github release with the files
 
 ## Reporting a bug
 

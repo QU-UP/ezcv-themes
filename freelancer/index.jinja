@@ -7,9 +7,8 @@
         <meta name="author" content="{{ config['name'] }}" /> 
         <link rel="icon" type="image/png" href="images/favicon.png"/>
         <title>{{ config["name"] }} </title>
-        <!--highlightjs-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
-        <script defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        {% include "components/general/highlightjs.jinja" | safe %}
+		{% include "components/general/analytics.jinja" | safe %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -19,16 +18,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        {% if config["ua_code"] %}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{config["ua_code"]}}');
-        </script>
-        {% endif %}
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -203,6 +192,9 @@
                         {% if config['social']["twitter"] %}
                         <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/{{config['social']['twitter']}}" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
                         {% endif %}
+                        {% if config['social']["x"] %}
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/{{config['social']['x']}}" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
+                        {% endif %}
                         {% if config['social']["instagram"] %}
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank"><i class="fab fa-lg fa-instagram"></i></a>
                         {% endif %}
@@ -245,6 +237,7 @@
         <script src="js/contact_me.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        {% include "components/general/mathjax.jinja" | safe %}
+        {% include "components/general/mermaid.jinja" | safe %}
     </body>
 </html>

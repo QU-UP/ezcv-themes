@@ -7,19 +7,10 @@
 	<link rel="icon" type="image/png" href="images/favicon.png"/>
 	<!-- Don't forget to add your metadata here -->
 	<link rel='stylesheet' href='css/style.min.css' />
-	{% if config["ua_code"] %}
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{config['ua_code']}}"></script>
-	<!--highlightjs-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', '{{config["ua_code"]}}');
-	</script>
-	{% endif %}
+	{% include "components/general/highlightjs.jinja" | safe %}
+	{% include "components/general/analytics.jinja" | safe %}
+    
+
 </head>
 <style>
 .hero{
@@ -128,6 +119,11 @@
 							<a href="https://www.twitter.com/{{config['social']['twitter']}}" target="_blank" class="footer__link">Twitter</a>
 						</div>
 						{% endif %}
+						{% if config['social']["x"] %}
+						<div class="footer__row">
+							<a href="https://www.x.com/{{config['social']['x']}}" target="_blank" class="footer__link">x</a>
+						</div>
+						{% endif %}
 						{% if config['social']["instagram"] %}
 						<div class="footer__row">
 							<a href="https://www.instagram.com/{{config['social']['instagram']}}" target="_blank" class="footer__link">Instagram</a>
@@ -164,5 +160,7 @@
 		</div>
 	</div>
 <script src='js/app.min.js'></script>
+{% include "components/general/mathjax.jinja" | safe %}
+{% include "components/general/mermaid.jinja" | safe %}
 </body>
 </html>

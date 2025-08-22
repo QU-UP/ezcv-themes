@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		{% include "components/general/highlightjs.jinja" | safe %}
+		{% include "components/general/analytics.jinja" | safe %}
 	</head>
 	<body class="is-preload">
 
@@ -66,6 +68,9 @@
 						{% if config['social']["twitter"] %}
 						<li><a href="https://www.twitter.com/{{config['social']['twitter']}}" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
 						{% endif %}
+						{% if config['social']["x"] %}
+						<li><a href="https://www.x.com/{{config['social']['x']}}" class="icon brands fa-twitter" target="_blank"><span class="label">x</span></a></li>
+						{% endif %}
 						{% if config['social']["instagram"] %}
 						<li><a href="https://www.instagram.com/{{config['social']['instagram']}}" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
 						{% endif %}
@@ -119,13 +124,15 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		{% include "components/general/mathjax.jinja" | safe %}
+		{% include "components/general/mermaid.jinja" | safe %}
 
 	</body>
 </html>
