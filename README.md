@@ -27,7 +27,7 @@ When building a release there is a pre-configured action that will set everythin
 1. Copy `resume.jinja` into it
 2. Copy `/components` into it
 3. Zip the file with the version number
-4. Draft a github release with the files
+4. Draft a github release with the zip files
 
 ## Reporting a bug
 
