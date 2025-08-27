@@ -1,0 +1,18 @@
+{% extends "components/shell.jinja" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+{{config["biography"]}}
+
+{{ education_html | safe }}
+
+{{ work_experience_html | safe }}
+
+{{ volunteering_experience_html | safe }}
+
+<h3>Blog Posts</h3>
+
+{{ blog_html | safe }}
+
+{% endblock %}

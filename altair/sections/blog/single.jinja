@@ -1,0 +1,22 @@
+{% extends "components/shell.jinja" %}
+{% block title %}Blog - {{content[0]["title"]}} {% endblock %}
+{% block title_color %}var(--yellow){% endblock %}
+
+{% block content %}
+{{ content[1] | safe }}
+
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+{% include "components/general/highlightjs.jinja" | safe %}
+{% include "components/general/mermaid.jinja" | safe %}
+{% include "components/general/mathjax.jinja" | safe %}
+{% endblock %}
+
+
+
+
+

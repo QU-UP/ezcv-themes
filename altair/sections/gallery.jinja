@@ -1,0 +1,37 @@
+<style>
+article{
+    width:100%;
+    margin:0;
+    max-width: unset;
+}
+</style>
+
+<div id="gallery">
+{% for image in gallery %}
+  <img src="{{ image[0]['file_path'] }}" alt="{{ image[0]['file_path'].split()[-1] }}" loading="lazy">
+{% endfor %}
+</div>
+
+<div id="image-modal">
+  <img id="modal-img" src="" alt="Full-size image">
+</div>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const gallery = document.getElementById("gallery");
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+
+    Array.from(gallery.getElementsByTagName("img")).forEach(img => {
+        img.addEventListener("click", () => {
+            modalImg.src = img.src;
+            modal.style.display = "flex";
+        });
+    });
+
+    modal.addEventListener("click", () => {
+        modal.style.display = "none";
+        modalImg.src = "";
+    });
+});
+</script>

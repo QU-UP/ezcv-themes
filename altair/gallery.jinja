@@ -1,0 +1,9 @@
+{% extends "components/shell.jinja" %}
+{% block title %}Gallery{% endblock %}
+{% block title_color %}var(--blue){% endblock %}
+
+{% block content %}
+
+{{ gallery_html | safe }}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+<div class="blog-posts">
+{% for post in blog %}
+	<a class="card" href="{{ post[0]['title'] }}">
+		<img src="https://api.dicebear.com/9.x/icons/svg?seed={{ post[0]['title'] }}" alt="">
+		<div class="heading">{{ post[0]["title"] }} </div>
+		<div class="heading-candy"></div>
+		<div class="card-content">
+			<h5 style="padding-bottom:.3rem;"><span>Published {{ post[0]["created"] }}</span></h5>
+			{{ post[1] | truncate(150, killwords=False, end='...') |striptags}}
+		</div>
+	</a>
+{% endfor %}
+</div>

@@ -1,0 +1,11 @@
+{% extends "components/shell.jinja" %}
+{% block title %}Blog{% endblock %}
+{% block title_color %}var(--yellow){% endblock %}
+
+
+{% block content %}
+
+{{ blog_html | safe }}
+
+{% endblock %}
+

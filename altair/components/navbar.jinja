@@ -1,0 +1,37 @@
+<nav>
+    <div id="logo-link">
+        <a href="/">
+            {% if not config["avatar"]%}
+            <img src="https://api.dicebear.com/9.x/icons/svg?seed={{ config['name'] }}" alt="{{ config['name'] }}">
+            {% else %}
+            <img src="{{config['avatar']}}" alt="{{ config['name'] }}">
+            {%endif%}
+            {{ config["name"] }}</a>
+    </div>
+    <div id="menu-spacer">
+        <div class="about-space"></div>
+        {% if blog_html or sections["blog"] %}
+        <div class="blog-space"></div>
+        {%endif%}
+        {% if gallery_html or sections["gallery"]%}
+            <div class="gallery-space"></div>
+        {%endif%}
+
+        {% if config["resume"]%}
+            <div class="resume-space"></div>
+        {%endif%}
+    </div>
+    <div id="menu-links">
+        <a class="about-link" href="/">About</a>
+        {% if blog_html or sections["blog"]%}
+            <a class="blog-link" href="/blog">Blog</a>
+        {%endif%}
+        {% if gallery_html or sections["gallery"] %}
+            <a class="gallery-link" href="/gallery" >Gallery</a>
+        {%endif%}
+
+        {% if config["resume"]%}
+            <a class="resume-link" href="/resume" target="_blank">Resume</a>
+        {%endif%}
+    </div>
+</nav>
