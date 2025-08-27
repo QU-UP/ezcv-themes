@@ -1,0 +1,53 @@
+<script>
+    let biographyContent = `
+    {{config["biography"] | safe}}
+    `
+
+    let mainContent = `{% if education_html %}<h2>Education</h2>{{ education_html | safe }}{% endif %}
+    {% if work_experience_html %}<h2>Work Experience</h2>{{ work_experience_html | safe }}{% endif %}
+    {% if volunteering_experience_html %}<h2>Volunteering Experience</h2>{{ volunteering_experience_html | safe }}{% endif %}`
+    
+    window.addEventListener('hashchange',() => {
+        switch (window.location.hash){
+            case "#about":
+                document.getElementsByTagName("article")[0].innerHTML = biographyContent
+                break;
+            case "#information":
+                document.getElementsByTagName("article")[0].innerHTML = mainContent
+                break;
+        }
+    })
+
+    window.addEventListener('locationchange',() => {
+        switch (window.location.hash){
+            case "#about":
+                document.getElementsByTagName("article")[0].innerHTML = biographyContent
+                break;
+            case "#information":
+                document.getElementsByTagName("article")[0].innerHTML = mainContent
+                break;
+        }
+    })
+
+    window.navigation.addEventListener("navigate", (event) => {
+         switch (window.location.hash){
+            case "#about":
+                document.getElementsByTagName("article")[0].innerHTML = biographyContent
+                break;
+            case "#information":
+                document.getElementsByTagName("article")[0].innerHTML = mainContent
+                break;
+        }
+    })
+
+    window.addEventListener('onload',() => {
+        switch (window.location.hash){
+            case "#about":
+                document.getElementsByTagName("article")[0].innerHTML = biographyContent
+                break;
+            case "#information":
+                document.getElementsByTagName("article")[0].innerHTML = mainContent
+                break;
+        }
+    })
+</script>

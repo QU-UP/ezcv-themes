@@ -1,0 +1,41 @@
+created: 2025-08-26
+ezcv_version: 0.4.0
+folder: carte
+name: carte
+required_config:
+  name:
+    type: str
+    default: name
+    description: "Your full name"
+  biography:
+    type: str
+    default: "A description of yourself"
+    description: "This field is for writing about yourself you can add a > to span multiple lines"
+sections:
+  education:
+    fields:
+      current: bool
+      institution: str
+      title: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  volunteering_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+  work_experience:
+    fields:
+      company: str
+      current: bool
+      month_started: str
+      role: str
+      year_ended: int
+      year_started: int
+    type: markdown
+updated: 2025-08-26

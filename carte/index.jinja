@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config["name"] }} | Carte</title>
+    {% include "components/general/style-reset.jinja" | safe %}
+    {% include "components/general/mathjax.jinja" | safe %}
+    {% include "components/general/mermaid.jinja" | safe %}
+    {% include "components/general/analytics.jinja" | safe %}
+    {% include "components/themes.jinja" | safe %}
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <main>
+        <div id="contact">
+            {% if not config["avatar"]%}
+            <img src="https://api.dicebear.com/9.x/icons/svg?seed={{ config['name'] }}" alt="{{ config['name'] }}">
+            {% else %}
+            <img src="{{config['avatar']}}" alt="{{ config['name'] }}">
+            {%endif%}
+            <div>
+                <h1>{{config["name"]}}</h1>
+                <h3>{% if config['role'] %}  {{ config['role'] }}&nbsp;&bull;&nbsp;{% endif %} {% if config['company'] %}  {{ config['company'] }}{% endif %}</h3>
+                
+                <ul class="no-list">
+                    {% include "components/social-media.jinja" | safe %}
+                </ul>
+            </div>
+
+        </div>
+        <div id="content">
+            <article>
+                {{config["biography"] | safe}}
+            </article>
+            {% include "components/navbar.jinja" | safe %}
+        </div>
+    </main>
+    {% include "components/content-switcher.jinja" | safe %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+<style>
+    :root {
+        {% if config["colorTheme"] == "rosy" %}
+        /* Rosy Theme */
+        --content-bg: #FFC07F;
+        --primary-dark: #721121;
+        --accent: #F15156;
+        --primary: #A5402D;
+        --secondary: #FFCF99;
+        
+        {% elif config["colorTheme"] == "oceanic" %}
+        /* Oceanic */
+        --content-bg: #F0f0f0;
+        --primary-dark: #425eea;
+        --accent: #e87c1e;
+        --primary: #23327c;
+        --secondary: #5edbdd;
+
+        {% elif config["colorTheme"] == "straightLace" %}
+        /* Straight-Lace */
+        --content-bg: #F0f0f0;
+        --primary-dark: #3f3f3f;
+        --accent: #242424;
+        --primary: #141414;
+        --secondary: #c1c1c1;
+
+        {%else%}
+        /* Earthy */
+        --content-bg: #FEFAE0;
+        --primary-dark: #283618;
+        --accent: #BC6C25;
+        --primary: #606C38;
+        --secondary: #DDA15E;
+        {%endif%}
+    }
+
+</style>
